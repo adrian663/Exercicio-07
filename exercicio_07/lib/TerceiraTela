@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import "main.dart";
+import "SegundaTela";
+
+class TerceiraTela extends StatelessWidget {
+  const TerceiraTela({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Personagens'),
+      ),
+      body: ListView(
+        children: [
+          Image.asset("imagens/morty.jpg",
+            fit: BoxFit.cover,
+          ),
+          Padding(padding: EdgeInsets.all(50)),
+          Center(
+            child: ElevatedButton.icon(
+              onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PrimeiraTela()));
+              },
+              icon: Icon(Icons.arrow_right),
+              label: Text("Início"),
+            ),
+          ),
+          Padding(padding: EdgeInsets.all(15)),
+          Center(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SegundaTela()));
+                },
+                icon: Icon(Icons.arrow_right),
+                label: Text("Menu"),
+              ))
+        ],
+      ),
+    );
+  }
+}
